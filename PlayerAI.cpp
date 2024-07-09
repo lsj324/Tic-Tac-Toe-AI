@@ -14,11 +14,11 @@ tuple<int, int> PlayerAI::bestMove() const {
 
     char opponent = (symbol == 'o') ? 'x' : 'o';
 
-    // ½Â¸®ÇÒ ¼ö ÀÖ´Â Áï½Ã ÀÌµ¿ Ã£±â
+    // ìŠ¹ë¦¬í•  ìˆ˜ ìˆëŠ” ì¹¸ ì°¾ê¸°
     for (int i = 0; i < board->SIZE; ++i) {
         for (int j = 0; j < board->SIZE; ++j) {
             if (board->board[i][j] == ' ') {
-                // ³» ½Éº¼ÀÌ ÀÌ±â´Â Ä­ Ã£±â
+                // ë‚´ ì‹¬ë³¼ì´ ì´ê¸°ëŠ” ì¹¸ ì°¾ê¸°
                 board->board[i][j] = symbol;
                 if (board->checkWin(symbol)) {
                     board->board[i][j] = ' ';
@@ -26,7 +26,7 @@ tuple<int, int> PlayerAI::bestMove() const {
                 }
                 board->board[i][j] = ' ';
 
-                // Àû ½Éº¼ÀÌ ÀÌ±â´Â Ä­ Ã£±â
+                // ì  ì‹¬ë³¼ì´ ì´ê¸°ëŠ” ì¹¸ ì°¾ê¸°
                 board->board[i][j] = opponent;
                 if (board->checkWin(opponent)) {
                     board->board[i][j] = ' ';
@@ -37,7 +37,7 @@ tuple<int, int> PlayerAI::bestMove() const {
         }
     }
 
-    // °¡Àå ÁÁÀº Á¡¼ö¸¦ ¾òÀ» ¼ö ÀÖ´Â ÀÌµ¿ Ã£±â
+    // ê°€ì¥ ì¢‹ì€ ì ìˆ˜ë¥¼ ì–»ì„ ìˆ˜ ìˆëŠ” ì¹¸ ì°¾ê¸°
     for (int i = 0; i < board->SIZE; ++i) {
         for (int j = 0; j < board->SIZE; ++j) {
 
@@ -46,14 +46,14 @@ tuple<int, int> PlayerAI::bestMove() const {
                 int score = 0;
                 for (int k = 0; k < board->SIZE; ++k) {
                     if (board->board[i][k] == symbol) 
-                        score++; // Çà Á¡¼ö °è»ê
+                        score++; // í–‰ ì ìˆ˜ ê³„ì‚°
                     if (board->board[k][j] == symbol) 
-                        score++; // ¿­ Á¡¼ö °è»ê
+                        score++; // ì—´ ì ìˆ˜ ê³„ì‚°
                 }
                 if (i == j) {
                     for (int k = 0; k < board->SIZE; ++k) {
                         if (board->board[k][k] == symbol) 
-                            score++; // ´ë°¢¼± Á¡¼ö °è»ê
+                            score++; // ëŒ€ê°ì„  ì ìˆ˜ ê³„ì‚°
                     }
                 }
                 if (i + j == board->SIZE - 1) {
