@@ -1,4 +1,5 @@
 *![다운로드](https://github.com/lsj324/Tic-Tac-Toe-AI/assets/170494075/ae2e551c-c1e2-4ff0-98d6-c28d8a548239)
+
 *프로젝트 소개**
 
 - Tic Tac Toe 게임을 스스로 플레이 할 수 있는 AI를 개발하는 프로젝트입니다.
